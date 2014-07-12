@@ -5,6 +5,7 @@ using namespace std;
 bool GameEngine::Initialize()
 {
 
+	cout << "Starting Engine \n";
 	//Just a place holder
 	bool success = true;
 	if (!SDL_Init(SDL_INIT_EVERYTHING))
@@ -13,6 +14,7 @@ bool GameEngine::Initialize()
 	}
 	else
 	{
+			
 		gWindow = SDL_CreateWindow("Simply Platform", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 1280, 720, SDL_WINDOW_SHOWN&&SDL_WINDOW_BORDERLESS);
 		if (!gWindow)
 			std::cout << "Failed to Create Window \n" << SDL_GetError();

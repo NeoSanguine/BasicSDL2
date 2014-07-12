@@ -8,6 +8,7 @@
 #include <SDL_mixer.h>
 #include <stdio.h>
 #include <vector>
+#include "Console.h"
 
 struct GameEngine
 {
@@ -30,7 +31,8 @@ struct GameEngine
 	bool Quit(){ return gRunning = false; }
 	//Gets the current renderer
 	SDL_Renderer*getRenderer(){ return gRenderer; }
-
+	//returns my favorite console helper
+	Console getConsole(){ return console; }
 
 private:
 	bool gRunning;
@@ -38,7 +40,7 @@ private:
 	SDL_Renderer*gRenderer = NULL;
 	SDL_Surface*screen = NULL;
 	SDL_Event gEvent;
-	
+	Console console;
 };
 
 
