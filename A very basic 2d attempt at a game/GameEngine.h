@@ -13,9 +13,9 @@
 struct GameEngine
 {
 	
-	GameEngine(){}
+	GameEngine(){ gRunning = true; }
 	//Standard engine setup
-	bool Initialize();
+	bool Initialize(bool fullscreen);
 	void HandleEvents();
 	void Update();
 	void Render();
@@ -26,13 +26,13 @@ struct GameEngine
 	//Returns the window surface
 	SDL_Surface*getScreen(){ return screen; }
 	//Gets the event handler
-	SDL_Event getEvent(){ return gEvent; }
+	SDL_Event*getEvent(){ return &gEvent; }
 	//Calls for gRunning to be false. i.e : Ends the game loop
-	bool Quit(){ return gRunning = false; }
+	void Quit(){ gRunning = false; }
 	//Gets the current renderer
 	SDL_Renderer*getRenderer(){ return gRenderer; }
 	//returns my favorite console helper
-	Console getConsole(){ return console; }
+	Console*getConsole(){ return &console; }
 
 private:
 	bool gRunning;
